@@ -13,6 +13,9 @@ module.exports = function(app) {
   app.get('/', requireAuth, function(req, res){
     res.send({message:"Super secret code is ABC123!"});
   })
+  app.get('/pre-check_auth', requireAuth, function(req, res){
+    res.json({tokenOK: true});
+  })
   app.post('/signin', requireSignIn, Authentication.signin)
   app.post('/signup', Authentication.signup);
 
